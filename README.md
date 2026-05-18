@@ -1,10 +1,6 @@
 # Tubes_BukanOrangKampung
 
-<<<<<<< HEAD
-Repository Tugas Besar IF25-21013 Strategi Algoritma: pemanfaatan algoritma greedy untuk bot Robocode Tank Royale.
-=======
 Repository Tugas Besar IF25-21013 Strategi Algoritma: pemanfaatan algoritma greedy untuk membuat bot Robocode Tank Royale.
->>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
 
 ## Struktur Repository
 
@@ -12,125 +8,147 @@ Repository Tugas Besar IF25-21013 Strategi Algoritma: pemanfaatan algoritma gree
 Tubes_BukanOrangKampung/
 ├── src/
 │   ├── main-bot/
-<<<<<<< HEAD
 │   │   └── Bot1/
 │   └── alternative-bots/
-│       ├── alt-bot-1/CodeCey/
-│       ├── alt-bot-2/AdaptiveBot/
-=======
-│   │   └── FIX/
-│   └── alternative-bots/
-│       ├── alt-bot-1/AdaptiveBot/
-│       ├── alt-bot-2/Bot1/
->>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
-│       └── alt-bot-3/Bot2/
+│       ├── alt-bot-1/
+│       │   └── CodeCey/
+│       ├── alt-bot-2/
+│       │   └── AdaptiveBot/
+│       └── alt-bot-3/
+│           └── Bot2/
 ├── doc/
-│   └── README.md
+│   └── BukanOrangKampung.pdf
 ├── build-all.sh
 ├── build-all.cmd
 └── README.md
 ```
 
+## Penjelasan Singkat Algoritma Greedy
+
+Pada tugas besar ini, setiap bot menggunakan strategi greedy untuk memilih aksi terbaik pada kondisi saat itu. Keputusan greedy dilakukan berdasarkan beberapa heuristic, seperti jarak musuh, energi bot, energi musuh, risiko tabrakan, posisi terhadap wall, dan peluang tembakan mengenai target.
+
+Tujuan utama strategi greedy yang digunakan adalah memaksimalkan skor akhir melalui bullet damage, survival score, last survival bonus, dan ram damage jika kondisinya menguntungkan.
+
 ## Bot Utama
 
-<<<<<<< HEAD
-### Bot1
-Strategi greedy utama: **Greedy Aggressive Distance Shooter**.
+### Bot1 — Greedy Aggressive Distance Shooter
 
-Heuristic:
-1. Jika jarak musuh dekat, gunakan power peluru besar.
-2. Jika jarak musuh sedang, gunakan power sedang.
-3. Jika jarak musuh jauh, gunakan power kecil.
-4. Jika musuh sangat dekat, bot mundur dan berbelok untuk mengurangi risiko tabrakan.
+Bot1 digunakan sebagai bot utama. Strategi greedy pada Bot1 berfokus pada serangan berdasarkan jarak musuh. Bot akan terus melakukan scanning, lalu ketika musuh terdeteksi, bot memilih power peluru yang dianggap paling menguntungkan pada saat itu.
+
+Heuristic yang digunakan:
+1. Jika musuh berada pada jarak dekat, bot menggunakan power peluru besar.
+2. Jika musuh berada pada jarak sedang, bot menggunakan power peluru sedang.
+3. Jika musuh berada pada jarak jauh, bot menggunakan power peluru kecil.
+4. Jika musuh terlalu dekat, bot bergerak mundur dan berbelok untuk mengurangi risiko tabrakan.
+5. Jika bot menabrak wall, bot mundur dan berbelok agar tidak terus terkena wall damage.
+
+Strategi ini dipilih sebagai bot utama karena sederhana, agresif, dan langsung berorientasi pada peningkatan bullet damage.
+
+## Bot Alternatif
+
+### alt-bot-1: CodeCey — Greedy Smart Gunner
+
+CodeCey menggunakan strategi greedy yang menggabungkan movement aktif, pemindaian radar, dan keputusan menembak berdasarkan peluang hit.
+
+Heuristic yang digunakan:
+1. Bot bergerak aktif agar tidak menjadi target diam.
+2. Radar digunakan untuk memindai musuh secara terus-menerus.
+3. Ketika musuh terpindai, bot mengarahkan gun ke posisi musuh.
+4. Bot hanya menembak jika arah gun dianggap cukup tepat.
+5. Jika musuh terlalu dekat, bot melakukan dodge.
+6. Ram hanya dilakukan jika kondisi musuh lemah dan menguntungkan.
+
+### alt-bot-2: AdaptiveBot — Adaptive Greedy Survivor
+
+AdaptiveBot menggunakan strategi greedy yang lebih berfokus pada survival. Bot melakukan movement acak agar sulit diprediksi, tetapi tetap memiliki mekanisme untuk menghindari wall.
+
+Heuristic yang digunakan:
+1. Jika bot mendekati wall, bot langsung bergerak menjauh ke arah tengah arena.
+2. Jika posisi bot aman, bot bergerak secara acak agar sulit ditebak.
+3. Jika musuh terpindai, bot memilih power peluru berdasarkan jarak musuh.
+4. Jika energi bot rendah, bot menggunakan power peluru kecil.
+5. Jika bot menabrak wall atau bot lain, bot membalik arah.
+
+### alt-bot-3: Bot2 — Greedy Strafe Shooter
+
+Bot2 menggunakan strategi greedy dengan pola strafe movement. Setelah musuh terpindai, bot akan mengarahkan gun, menembak berdasarkan jarak, lalu bergerak menyamping untuk menghindari tembakan lawan.
+
+Heuristic yang digunakan:
+1. Jika musuh dekat, bot menembak dengan power besar.
+2. Jika musuh berada pada jarak sedang, bot menembak dengan power sedang.
+3. Jika musuh jauh, bot menembak dengan power kecil.
+4. Setelah menembak, bot melakukan strafe movement.
 5. Jika menabrak wall, bot mundur dan berbelok.
 
-## Bot Alternatif
+## Requirement Program
 
-### alt-bot-1: CodeCey
-Heuristic utama: movement aktif, radar scanning, firing berdasarkan peluang hit, dan dodge ketika musuh dekat.
-
-### alt-bot-2: AdaptiveBot
-Heuristic utama: survival melalui adaptive movement dan wall avoidance.
-=======
-### FIX
-Strategi greedy utama: **Adaptive Bot1 Greedy Radar**.
-
-Heuristic:
-1. Jika bot dekat wall, bot langsung bergerak ke tengah arena.
-2. Jika musuh terdeteksi, gun diarahkan ke musuh dan bot langsung menembak.
-3. Power peluru dipilih berdasarkan jarak musuh, energi musuh, energi bot, dan jumlah musuh tersisa.
-4. Jika musuh dekat, bot melakukan dodge agar tidak tertabrak.
-5. Jika terkena peluru, bot mengubah arah dan bergerak untuk menghindari tembakan lanjutan.
-
-Tujuan strategi ini adalah mengoptimalkan skor dari bullet damage, survival score, dan peluang finishing tanpa terlalu boros energi.
-
-## Bot Alternatif
-
-### alt-bot-1: AdaptiveBot
-Heuristic utama: mengutamakan survival dengan wall avoidance dan movement acak.
-
-### alt-bot-2: Bot1
-Heuristic utama: menyerang agresif berdasarkan jarak musuh.
->>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
-
-### alt-bot-3: Bot2
-Heuristic utama: strafe movement setelah menembak dan fire power dinamis berdasarkan jarak.
-
-## Requirement
-
+Program membutuhkan:
 - .NET 10.0
-- Robocode Tank Royale Bot API `0.41.0`
-- Microsoft.Extensions.Configuration.Binder `10.0.0`
-<<<<<<< HEAD
-=======
+- Robocode Tank Royale Bot API 0.41.0
+- Microsoft.Extensions.Configuration.Binder 10.0.0
 - Robocode Tank Royale engine dari starter pack tugas besar
->>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
 
-## Build Semua Bot
+## Cara Build Semua Bot
 
-Mac/Linux:
+### Mac/Linux
 
 ```bash
 chmod +x build-all.sh
 ./build-all.sh
 ```
 
-Windows:
+### Windows
 
 ```cmd
 build-all.cmd
 ```
 
-## Run Bot Utama
+## Cara Menjalankan Bot Utama
+
+Masuk ke folder bot utama:
 
 ```bash
-<<<<<<< HEAD
 cd src/main-bot/Bot1
+```
+
+Jalankan bot:
+
+```bash
 chmod +x Bot1.sh
 ./Bot1.sh
-=======
-cd src/main-bot/FIX
-chmod +x FIX.sh
-./FIX.sh
 ```
 
 Atau manual:
 
 ```bash
-cd src/main-bot/FIX
 dotnet build
 dotnet run --no-build
 ```
 
-## Run Bot Alternatif
+## Cara Menjalankan Bot Alternatif
 
-Contoh:
+### CodeCey
 
 ```bash
-cd src/alternative-bots/alt-bot-1/AdaptiveBot
+cd src/alternative-bots/alt-bot-1/CodeCey
 dotnet build
 dotnet run --no-build
->>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
+```
+
+### AdaptiveBot
+
+```bash
+cd src/alternative-bots/alt-bot-2/AdaptiveBot
+dotnet build
+dotnet run --no-build
+```
+
+### Bot2
+
+```bash
+cd src/alternative-bots/alt-bot-3/Bot2
+dotnet build
+dotnet run --no-build
 ```
 
 ## Author
@@ -138,13 +156,6 @@ dotnet run --no-build
 Kelompok: **BukanOrangKampung**
 
 Anggota:
-<<<<<<< HEAD
-1. Cey
-2. TODO: isi nama anggota
-3. TODO: isi nama anggota
-=======
-1. M.Rifat Syauki (124140138)
+1. M. Rifat Syauki (124140138)
 2. Pina Ramanda (124140170)
 3. Chesya Margaretha Deto (124140098)
-   
->>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
