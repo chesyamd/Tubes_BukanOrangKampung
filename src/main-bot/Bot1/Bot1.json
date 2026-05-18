@@ -2,7 +2,7 @@
   "name": "Bot1",
   "version": "1.0",
   "authors": ["Cey"],
-  "description": "Main greedy bot with aggressive distance-based firing.",
+  "description": "Alternative greedy aggressive bot based on distance-based fire power.",
   "homepage": "",
   "countryCodes": ["id"],
   "platform": ".Net 10.0",
