@@ -1,0 +1,10 @@
+{
+  "name": "CodeCey",
+  "version": "1.0",
+  "authors": ["Cey"],
+  "description": "Alternative greedy bot with active movement, radar scanning, and dodge heuristic.",
+  "homepage": "",
+  "countryCodes": ["id"],
+  "platform": ".Net 10.0",
+  "programmingLang": "C# 10.0"
+}

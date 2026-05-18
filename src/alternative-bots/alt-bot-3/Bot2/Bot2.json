@@ -1,0 +1,14 @@
+{
+  "name": "Bot2",
+  "version": "1.0",
+  "authors": ["Cey"],
+<<<<<<< HEAD
+  "description": "Alternative greedy strafe bot with dynamic fire power based on distance.",
+=======
+  "description": "Alternative greedy strafe bot with dynamic fire power and radar scanning.",
+>>>>>>> 4e6a780599d70787268a051d127fc2f2fd4f2bef
+  "homepage": "",
+  "countryCodes": ["id"],
+  "platform": ".Net 10.0",
+  "programmingLang": "C# 10.0"
+}

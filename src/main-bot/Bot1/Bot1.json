@@ -1,0 +1,10 @@
+{
+  "name": "Bot1",
+  "version": "1.0",
+  "authors": ["Cey"],
+  "description": "Main greedy bot with aggressive distance-based firing.",
+  "homepage": "",
+  "countryCodes": ["id"],
+  "platform": ".Net 10.0",
+  "programmingLang": "C# 10.0"
+}
