@@ -15,8 +15,7 @@ public class Bot2 : Bot
 
     public override void Run()
     {
-        // 🎨 WARNA ROBOT
-        BodyColor = Color.Red;        // 🔴 MERAH
+        BodyColor = Color.Red;        
         GunColor = Color.Black;
         RadarColor = Color.Yellow;
 
@@ -31,10 +30,10 @@ public class Bot2 : Bot
     {
         double distance = DistanceTo(e.X, e.Y);
 
-        // 🎯 Arahkan tembakan ke musuh
+        
         TurnGunTo(e.X, e.Y);
 
-        // 🔥 Fire power dinamis
+        
         if (distance < 150)
             Fire(3);
         else if (distance < 300)
@@ -42,7 +41,7 @@ public class Bot2 : Bot
         else
             Fire(1);
 
-        // 🌀 STRAFE MOVEMENT (ngelak kiri/kanan)
+        
         if (distance < 250)
         {
             TurnRight(90);
